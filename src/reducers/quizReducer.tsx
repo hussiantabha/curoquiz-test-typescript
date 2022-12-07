@@ -181,4 +181,50 @@ const QuizContextProvider = ({ children }: ContextProp) => {
     </QuizContext.Provider>
   );
 };
-export { QuizContext, QuizContextProvider };
+const reducerFunc = (state: QuizState, action: Action) => {
+  switch (action.type) {
+    case "addquiz1Data": {
+      return { ...state, quiz1Data: action.payload.value };
+    }
+    case "gadgetQuizAnswers": {
+      return { ...state, gadgetQuizAnswers: action.payload.value };
+    }
+    case "addFilmQuizData": {
+      return { ...state, filmQuizData: action.payload.value };
+    }
+    case "filmQuizAnswers": {
+      return { ...state, filmQuizAnswers: action.payload.value };
+    }
+    case "addSportsQuizData": {
+      return { ...state, sportsQuizData: action.payload.value };
+    }
+    case "sportsQuizAnswers": {
+      return { ...state, sportsQuizAnswers: action.payload.value };
+    }
+    case "userLoggedIn": {
+      return { ...state, userLoggedIn: action.payload.value };
+    }
+    default: {
+      return { ...state };
+    }
+  }
+};
+export type Statetype = {
+  quiz1Data: string[];
+  gadgetQuizAnswers: string[];
+  filmQuizData: string[];
+  filmQuizAnswers: string[];
+  sportsQuizData: string[];
+  sportsQuizAnswers: string[];
+  userLoggedIn: boolean;
+};
+const initalState = {
+  quiz1Data: [],
+  gadgetQuizAnswers: [],
+  filmQuizData: [],
+  filmQuizAnswers: [],
+  sportsQuizData: [],
+  sportsQuizAnswers: [],
+  userLoggedIn: false,
+};
+export { QuizContext, QuizContextProvider, reducerFunc, initalState };
