@@ -38,7 +38,7 @@ type Action =
   | {
       type: "addFilmQuizData";
       payload: {
-        value: FilmData[];
+        value: any;
       };
     }
   | {
